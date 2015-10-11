@@ -1,0 +1,32 @@
+{
+  "name": "citysdk",
+  "version": "1.0.0",
+  "description": "CitySDK API Wrapper",
+  "keywords": [
+    "CitySDK",
+    "census data"
+  ],
+  "homepage": "https://github.com/chadhuber/citysdk",
+  "author": {
+    "name": "Chad Huber",
+    "email": "chad.huber@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chadhuber/citysdk"
+  },
+  "bugs:": "https://github.com/chadhuber/citysdk/issues",
+  "engines": {
+    "node": ">= v0.10.0"
+  },
+  "main": "lib/citysdk.js",
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "terraformer": "^1.0.5",
+    "request": "^2.61.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chadhuber/citysdk/issues"
+  }
+}
