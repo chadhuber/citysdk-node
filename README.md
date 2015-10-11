@@ -16,9 +16,6 @@ The Node CitySDK Wrapper is designed to be the simplest way possible to make cal
 - Restructed for server based operation instead of client-side (ie. made appropriate changes for instances of window.[])
 
 
----
-
-
 ## Getting Started
 
 Install via NPM
@@ -57,7 +54,7 @@ __Arguments__
 var request = {
   "lat": 39.710438,
   "lng": -91.356049,
-  "level": "state",
+  "level": "tract",
   "variables": [
       "income",
       "population"
@@ -72,7 +69,7 @@ census.APIRequest(request, function(response) {
 
 { lat: 39.710438,
   lng: -91.356049,
-  level: 'state',
+  level: 'tract',
   variables: [ 'income', 'population' ],
   year: 2013,
   api: 'acs5',
@@ -83,13 +80,9 @@ census.APIRequest(request, function(response) {
   blockGroup: '1',
   place: '30214',
   place_name: 'Hannibal city',
-  data: [{ 
-    income: '47380',
-    population: '6007182' 
-  }] 
-}
+  data: [ { income: '29212', population: '3320' } ] }
 
-*/
+*/t
 
 ````
 
