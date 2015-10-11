@@ -101,9 +101,9 @@ nb. Largely based off of the documentation available at http://uscensusbureau.gi
 
 ## Alias Variables
 
-| Alias Name              | Variable    | Description                                                                   |
-| :-------------------------------| :-----------| :---------------------------------------------------------------------|
-| income                            B19013_001E | Median household income in the past 12 months*                        |
+| Alias Name              | Variable    | Description                                                                                      |
+| :-------------------------------| :-----------| :----------------------------------------------------------------------------------------|
+| income                            B19013_001E | Median household income in the past 12 months*                                           |
 | income_per_capita       | B19301_001E | Per capita income in the past 12 months*                                      |
 | employment_labor_force  | B23025_002E | Number of persons, age 16 or older, in the labor force                        |
 | employment_not_labor_force      | B23025_007E | Number of persons, age 16 or older, not in the labor force            |
