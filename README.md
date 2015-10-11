@@ -54,7 +54,7 @@ __Arguments__
 var request = {
   "lat": 39.710438,
   "lng": -91.356049,
-  "level": "tract",
+  "level": "blockGroup",
   "variables": [
       "income",
       "population"
@@ -69,20 +69,20 @@ census.APIRequest(request, function(response) {
 
 { lat: 39.710438,
   lng: -91.356049,
-  level: 'tract',
+  level: 'blockGroup',
+  sublevel: false,
   variables: [ 'income', 'population' ],
   year: 2013,
   api: 'acs5',
-  sublevel: false,
   state: '29',
   county: '127',
   tract: '960800',
   blockGroup: '1',
   place: '30214',
   place_name: 'Hannibal city',
-  data: [ { income: '29212', population: '3320' } ] }
+  data: [ { income: '28864', population: '601' } ] }
 
-*/t
+*/
 
 ````
 
