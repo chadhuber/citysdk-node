@@ -23,6 +23,7 @@
   "dependencies": {
     "underscore": "^1.8.3",
     "terraformer": "^1.0.5",
+    "terraformer-arcgis-parser": "^1.0.4",
     "request": "^2.61.0"
   },
   "license": "MIT",
