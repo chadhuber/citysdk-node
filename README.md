@@ -30,11 +30,21 @@ Inside your Node.js project
 nb. Request your Census API Key at http://api.census.gov/data/key_signup.html
 
 
-## Making Requests
+## Types of Requests
+
+There are two basic types of requests, `APIRequest()` which retrieves data based on the location and variables 
+you request and `GEORequest()` which will respond with the data in GEOJSON format including the bounding box 
+coordinates data for creating maps
+
+### Request Format
+
+Both requests have the same basic format:
 
 ```js
 
 census.APIRequest(request, callback);
+
+census.GEORequest(request, callback);
 
 ```
 
@@ -45,7 +55,9 @@ __Arguments__
   with response object
 
 
-## Request Example
+## Request Examples
+
+A simple APIRequest()
 
 ```js
 
@@ -88,15 +100,27 @@ census.APIRequest(request, function(response) {
 
 ## Request Object
 
-* __lat__ [int] - This tag specifies the latitude of the location in which we are interested. You can also specify this as "latitude" or "y".
+__Location Options__
 
-* __lng__ [int] - This tag specifies the longitude of the location in which we are interested. You can also specify this as "longitude" or "x".
+To specify a location, you must use `lat` and `lng`, or `zip`, or `state`. At least one of these must be specified.
 
-* __level__ [string] - This tag specifies the "level" of data to request. Supported levels are based off of Census geographies, the SDK supporting: "blockGroup", "tract", "county", "state", "us", and "place". Please note, that the "place" level currently only supports incorporated places. If we changed our level to "blockGroup" instead of state, we would get information for a much smaller geographic region.
+* __lat__ [int] - The latitude of the requested location (North). Also supported: `latitude`, `y`
+* __lng__ [int] - The longitude of the requested location (East). Also supported: `longitude`, `x`
+* __zip__ [string] - The 5-digit zip code of the location. Note that USPS zip code areas do not align precisely with Census geographies, so when high accuracy is required it is recommended to use latitude and longitude. Specified as a string because certain zip codes begin with zeroes.
+* __state__ [string] - The 2-letter USPS state code. It will be converted into the latitude and longitude of that state's capital.
 
-* __variables__ [array] - This is an optional array of strings which specify the variables from the ACS to request. This example uses an alias (see aliases below), but you could also request raw ACS variables like "B01003_001E". You can find a list of all ACS variables on the Census's developer site, or by calling the Census module's getACSVariableDictionary() function.
+__Level Options__
 
-nb. Largely based off of the documentation available at http://uscensusbureau.github.io/citysdk/guides/censusModule.html
+* __level__ [string] - At what level to request the data. These are based on census geographies. Supported options are: `blockGroup`, `tract`, `county`, `state`, `us`, and `place`. Note that the `place` tag currently only supports incorporated places.
+* __sublevel__ [boolean] - _Optional_ Whether or not to return based upon sublevels (Defaults to `false`)
+* __container__ [string] - _Optional_ GeoJSON request only - Specifies a level which serves as a boundary for a GeoJSON request. For instance, if your level is `tract` and your container is set as `place` with sublevel enabled, it will return all tracts which fall within or touch that place's geographical boundaries. Supported options are: `tract`, `county`, `state`, `place`, `geometry`, and `geometry_within`. Note that for the `geometry` and `geometry` within tags you must specify the containerGeometry. `geometry` will return any entities that intersect the given geometry (including if they intersect but extend beyond the perimeter) whereas `geometry_within` will only return entities that are entirely contained within the containerGeometry specified.
+* __containerGeometry__ [object] - _Optional_ GeoJSON request only - Specifies the bounding geometry for a GeoJSON request. The format of this data should be ArcGIS ESRI JSON. You can convert GeoJSON into ESRI using the `GEOtoESRI()` function. The boundary can be any arbitrary closed region or regions.
+
+__Data Options__
+
+* __api__ [string] - _Optional_ Specifies the API to use. Supported options are: `acs1`, `acs3`, and `acs5`. (Defaults to `acs5`)
+* __year__ [int] _Optional_ - Specifies the year of the API to use. Supported years per API vary, please see the acsyears object of the Census module for details (Defaults to `2013`).
+* __variables__ [array] _Optional_ - An array of strings specifying which variables to query. One can specify an aliased variable (see variable aliases) or a specific ACS variable code (e.g. `B01003_001E`). If this array is not specified, the SDK will simply geocode the location into Census FIPS codes. A list of all ACS variables is available via the getACSVariableDictionary() function.
 
 
 ## Alias Variables
@@ -839,3 +863,6 @@ nb. Largely based off of the documentation available at http://uscensusbureau.gi
     <td>B15003_025E</td>
   </tr>
 </table>
+
+
+nb. This documentation is largely based off of the docs available at http://uscensusbureau.github.io/citysdk/guides/censusModule.html
