@@ -54,50 +54,6 @@ __Arguments__
 * `callback(response)` - A callback which is called when the request is completed 
   with response object
 
-
-## Request Examples
-
-A simple APIRequest()
-
-```js
-
-// latitude and longitude of Mark Twain's childhood home
-
-var request = {
-  "lat": 39.710438,
-  "lng": -91.356049,
-  "level": "blockGroup",
-  "variables": [
-      "income",
-      "population"
-  ]
-};
-
-census.APIRequest(request, function(response) {
-  console.log(response);
-});
-
-/* RESPONSE
-
-{ lat: 39.710438,
-  lng: -91.356049,
-  level: 'blockGroup',
-  sublevel: false,
-  variables: [ 'income', 'population' ],
-  year: 2013,
-  api: 'acs5',
-  state: '29',
-  county: '127',
-  tract: '960800',
-  blockGroup: '1',
-  place: '30214',
-  place_name: 'Hannibal city',
-  data: [ { income: '28864', population: '601' } ] }
-
-*/
-
-````
-
 ## Request Object
 
 __Location Options__
@@ -121,6 +77,58 @@ __Data Options__
 * __api__ [string] - _Optional_ Specifies the API to use. Supported options are: `acs1`, `acs3`, and `acs5`. (Defaults to `acs5`)
 * __year__ [int] _Optional_ - Specifies the year of the API to use. Supported years per API vary, please see the acsyears object of the Census module for details (Defaults to `2013`).
 * __variables__ [array] _Optional_ - An array of strings specifying which variables to query. One can specify an aliased variable (see variable aliases) or a specific ACS variable code (e.g. `B01003_001E`). If this array is not specified, the SDK will simply geocode the location into Census FIPS codes. A list of all ACS variables is available via the getACSVariableDictionary() function.
+
+## Request Examples
+
+A simple APIRequest()
+
+```js
+
+// latitude and longitude of Mark Twain's childhood home
+
+var request = {
+  "lat": 39.710438,
+  "lng": -91.356049,
+  "level": "blockGroup",
+  "variables": [
+      "income",
+      "population"
+  ]
+};
+
+census.APIRequest(request, function(response) {
+  console.log(response);
+});
+
+```
+
+This request will have the following response
+
+```json
+
+{ 
+  lat: 39.710438,
+  lng: -91.356049,
+  level: 'blockGroup',
+  sublevel: false,
+  variables: [ 'income', 'population' ],
+  year: 2013,
+  api: 'acs5',
+  state: '29',
+  county: '127',
+  tract: '960800',
+  blockGroup: '1',
+  place: '30214',
+  place_name: 'Hannibal city',
+  data: [{ 
+    income: '28864',
+    population: '601'
+  }] 
+}
+
+*/
+
+````
 
 
 ## Alias Variables
