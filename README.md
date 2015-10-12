@@ -126,8 +126,6 @@ This request will have the following response
   }] 
 }
 
-*/
-
 ````
 
 
