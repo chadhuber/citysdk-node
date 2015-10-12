@@ -131,7 +131,7 @@ This request will have the following response
 
 ## Alias Variables
 
-These are simply the most interesting variables, use the function `getACSVariableDictionary()` function 
+These are simply the most interesting variables, use the function `getACSVariableDictionary()` 
 for a complete listing (or see https://gist.github.com/chadhuber/e03d4a13e79700a40447 for its output as of 10/11/15)
 
 <table>
