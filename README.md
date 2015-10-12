@@ -20,7 +20,7 @@ The Node CitySDK Wrapper is designed to be the simplest way possible to make cal
 
 Install via NPM
 
-`npm install citysdk`
+`npm install git://github.com/chadhuber/citysdk-node.git`
 
 
 Inside your Node.js project
