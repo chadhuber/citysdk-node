@@ -107,22 +107,22 @@ This request will have the following response
 ```json
 
 { 
-  lat: 39.710438,
-  lng: -91.356049,
-  level: 'blockGroup',
-  sublevel: false,
-  variables: [ 'income', 'population' ],
-  year: 2013,
-  api: 'acs5',
-  state: '29',
-  county: '127',
-  tract: '960800',
-  blockGroup: '1',
-  place: '30214',
-  place_name: 'Hannibal city',
-  data: [{ 
-    income: '28864',
-    population: '601'
+  "lat": 39.710438,
+  "lng": -91.356049,
+  "level": "blockGroup",
+  "sublevel": false,
+  "variables": [ "income", "population" ],
+  "year": 2013,
+  ""api"": "acs5",
+  "state": "29",
+  "county": "127",
+  "tract": "960800",
+  "blockGroup": "1",
+  "place": "30214",
+  "place_name": "Hannibal city",
+  "data": [{ 
+    "income": "28864",
+    "population": "601"
   }] 
 }
 
