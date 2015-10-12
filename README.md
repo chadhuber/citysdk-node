@@ -113,7 +113,7 @@ This request will have the following response
   "sublevel": false,
   "variables": [ "income", "population" ],
   "year": 2013,
-  ""api"": "acs5",
+  "api: "acs5",
   "state": "29",
   "county": "127",
   "tract": "960800",
