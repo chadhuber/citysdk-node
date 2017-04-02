@@ -75,7 +75,7 @@ __Level Options__
 __Data Options__
 
 * __api__ [string] - _Optional_ Specifies the API to use. Supported options are: `acs1`, `acs3`, and `acs5`. (Defaults to `acs5`)
-* __year__ [int] _Optional_ - Specifies the year of the API to use. Supported years per API vary, please see the acsyears object of the Census module for details (Defaults to `2014`).
+* __year__ [int] _Optional_ - Specifies the year of the API to use. Supported years per API vary, please see the acsyears object of the Census module for details (Defaults to `2015`).
 * __variables__ [array] _Optional_ - An array of strings specifying which variables to query. One can specify an aliased variable (see variable aliases) or a specific ACS variable code (e.g. `B01003_001E`). If this array is not specified, the SDK will simply geocode the location into Census FIPS codes. A list of all ACS variables is available via the getACSVariableDictionary() function.
 
 ## Request Examples
